@@ -26,7 +26,7 @@ WordPress, internet üzerindeki en popüler içerik yönetim sistemlerinden biri
 
 ## 🔧 Kurulum
 
-1. Projeyi indirin: `[git clone https://github.com/OmerAti/jrodix-wp-speeder.git](https://github.com/OmerAti/jrodix-wp-speeder)`
+1. Projeyi indirin: `https://github.com/OmerAti/jrodix-wp-speeder`
 2. Zip dosyasını indirin.
 3. WordPress Yönetici Paneli'ne gidin ve Eklentiler > Eklenti Yükle sayfasına gidin veya zip dosyasını wp-content\plugins dizinine çıkarın.
 4. 'WP Speeder'ı arayın ve kurun.
