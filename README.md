@@ -30,4 +30,4 @@ WordPress, internet üzerindeki en popüler içerik yönetim sistemlerinden biri
 2. Zip dosyasını indirin.
 3. WordPress Yönetici Paneli'ne gidin ve Eklentiler > Eklenti Yükle sayfasına gidin veya zip dosyasını wp-content\plugins dizinine çıkarın.
 4. 'WP Speeder'ı arayın ve kurun.
-5. Etkinleştirdikten sonra, Ayarlar > WP Speeder sayfasına gidin ve istediğiniz optimizasyon ayarlarını yapılandırın.
+5. Etkinleştirdikten sonra, WP Speeder sayfasına gidin ve istediğiniz optimizasyon ayarlarını yapılandırın.
