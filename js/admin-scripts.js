@@ -1,0 +1,1 @@
+function blinkElement(n){n.classList.add("blinking"),setTimeout(function(){n.classList.remove("blinking")},1e3)}document.addEventListener("DOMContentLoaded",function(){var n=document.querySelector(".connection-status");n&&blinkElement(n)});
