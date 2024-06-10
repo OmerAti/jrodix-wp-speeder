@@ -1,5 +1,3 @@
-
-
   <img src="https://github.com/OmerAti/jrodix-wp-speeder/blob/main/img/logo.png" alt="WP Speeder" width="50"> WP Speeder: WordPress Hızlandırma
 WordPress, internet üzerindeki en popüler içerik yönetim sistemlerinden biridir. Ancak, birçok WordPress sitesi, yavaş yükleme süreleri nedeniyle kullanıcı deneyimini olumsuz etkileyebilir. Neyse ki, WordPress sitenizin hızını artırmak için birçok etkili yöntem mevcuttur. Bu projede, WordPress sitenizin performansını artırmak için bazı temel adımları ele aldık.
 
@@ -23,13 +21,13 @@ HTML Sıkıştır: HTML dosyalarınızı sıkıştırarak, dosya boyutunu azalta
 Sayfa Önbelleği: WordPress sitenizin sayfalarını önbelleğe alarak, tekrarlayan ziyaretlerde sayfa yükleme süresini azaltabilirsiniz. Bu, sunucunun sayfa içeriğini yeniden oluşturmak yerine önbellekten almasını sağlar.
 
 🔧 Kurulum
-Projeyi klonlayın:
- <img src="https://github.com/OmerAti/jrodix-wp-speeder/blob/main/img/screen.png" alt="WP Speeder" width="50"> 
+
+```markdown
+Projeyi klonlayın veya indirin
+   git clone https://github.com/OmerAti/jrodix-wp-speeder.git
 
 Zip dosyasını indirin
 
-WordPress Yönetici Paneli'ne gidin ve Eklentiler > Ekle Yükle sayfasına gidin veya zip dosyasını wp-content\plugins çıkarın
+WordPress Yönetici Paneli'ne gidin ve Eklentiler > Eklenti Yükle sayfasına gidin veya zip dosyasını wp-content\plugins çıkarın
 
-'WP Speeder'ı arayın ve kurun.
-
-Etkinleştirdikten sonra, Ayarlar > WP Speeder sayfasına gidin ve istediğiniz optimizasyon ayarlarını yapılandırın.
+'WP Speeder'
