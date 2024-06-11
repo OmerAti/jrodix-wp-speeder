@@ -39,6 +39,10 @@ add_action('init', 'jrodix_remove_emojis');
 
 
 function jrodix_defer_parsing_of_js($url) {
+    if (!function_exists('is_user_logged_in')) {
+        require_once(ABSPATH . 'wp-includes/pluggable.php');
+    }
+    
     $options = get_option('jrodix_wp_speeder_settings');
     if (isset($options['defer_js']) && !is_user_logged_in()) {
         if (FALSE === strpos($url, '.js')) return $url;
@@ -47,6 +51,7 @@ function jrodix_defer_parsing_of_js($url) {
     return $url;
 }
 add_filter('clean_url', 'jrodix_defer_parsing_of_js', 11, 1);
+
 
 
 function jrodix_lazy_load_iframes($content) {
