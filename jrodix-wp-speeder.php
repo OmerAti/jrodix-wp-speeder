@@ -39,10 +39,6 @@ add_action('init', 'jrodix_remove_emojis');
 
 
 function jrodix_defer_parsing_of_js($url) {
-    if (!function_exists('is_user_logged_in')) {
-        require_once(ABSPATH . 'wp-includes/pluggable.php');
-    }
-    
     $options = get_option('jrodix_wp_speeder_settings');
     if (isset($options['defer_js']) && !is_user_logged_in()) {
         if (FALSE === strpos($url, '.js')) return $url;
