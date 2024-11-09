@@ -202,30 +202,45 @@ function jrodix_webp_support($url) {
     return $url;
 }
 add_filter('wp_get_attachment_url', 'jrodix_webp_support');
-function jrodix_cache_method_switcher($options) {
-    if (isset($options['cache_method'])) {
-        $cache_method = $options['cache_method'];
-        if ($cache_method === 'memcached' && class_exists('Memcached')) {
-            $memcached = new Memcached();
-            $memcached->addServer('127.0.0.1', 11211);
-            $connected = $memcached->getVersion();
-            if (!$connected) {
-                return 'Bağlantı Başarısız. Sunucunuz Desteklemiyor.';
-            } else {
-                return 'Bağlantı Başarılı.';
-            }
-        } elseif ($cache_method === 'redis' && class_exists('Redis')) {
-            $redis = new Redis();
-            $connected = $redis->connect('127.0.0.1', 6379);
-            if (!$connected) {
-                return 'Bağlantı Başarısız. Sunucunuz Desteklemiyor.';
-            } else {
-                return 'Bağlantı Başarılı.';
-            }
-        }
+function jrodix_cache_method_switcher($options = null) {
+
+    if (empty($options) || !isset($options['cache_method'])) {
+        return 'Önbellek yöntemi seçilmedi.';
     }
-    return 'Bağlantı Başarısız. Sunucunuz Desteklemiyor.';
+
+    $cache_method = $options['cache_method'];
+
+
+    if ($cache_method === 'memcached' && class_exists('Memcached')) {
+        $memcached = new Memcached();
+        $memcached->addServer('127.0.0.1', 11211);
+        $version = $memcached->getVersion();
+        if ($version && is_array($version)) {
+            return 'Memcached Bağlantısı Başarılı.';
+        } else {
+            return 'Memcached Bağlantısı Başarısız. Sunucunuz Desteklemiyor veya Memcached sunucusuna erişilemiyor.';
+        }
+
+
+    } elseif ($cache_method === 'redis' && class_exists('Redis')) {
+        $redis = new Redis();
+        try {
+            $connected = $redis->connect('127.0.0.1', 6379);
+            if ($connected) {
+                return 'Redis Bağlantısı Başarılı.';
+            } else {
+                return 'Redis Bağlantısı Başarısız. Sunucunuz Desteklemiyor veya Redis sunucusuna erişilemiyor.';
+            }
+        } catch (Exception $e) {
+            return 'Redis Bağlantı Hatası: ' . $e->getMessage();
+        }
+
+
+    } else {
+        return 'Seçilen önbellek yöntemi desteklenmiyor. Lütfen Redis veya Memcached seçeneğini kontrol edin.';
+    }
 }
+
 function jrodix_enable_lazy_load() {
     $options = get_option('jrodix_wp_speeder_settings');
     if (isset($options['lazy_load_images']) && $options['lazy_load_images'] == 1) {
@@ -280,4 +295,3 @@ function jrodix_compress_html($buffer) {
     return $buffer;
 }
 ?>
-
